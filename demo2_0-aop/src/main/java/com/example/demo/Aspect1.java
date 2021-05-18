@@ -9,10 +9,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Aspect1 {
 
+	@Pointcut("execution(public * *(..))")
+	public void publicMethod() {}
+
 	@Pointcut("@annotation(com.example.demo.Annotation1)")
 	public void annotated() {}
 
-	@Before("annotated()")
+	@Before("annotated() && publicMethod()")
 	public void printABit() {
 		System.out.println("Aspect1");
 	}

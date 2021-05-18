@@ -1,16 +1,15 @@
 package com.example.demo;
 
-import org.springframework.stereotype.Component;
+public class MyService {
 
-@Component
-public class MyInterfaceImpl implements MyInterface {
-
-	@InjectOperatingSystem
 	private String operatingSystem;
 
-	@Override
 	public void doSomething() {
 		System.out.printf("Hi, I'm running on %s%n", operatingSystem);
+	}
+
+	public void setOperatingSystem(String operatingSystem) {
+		this.operatingSystem = operatingSystem;
 	}
 
 }
