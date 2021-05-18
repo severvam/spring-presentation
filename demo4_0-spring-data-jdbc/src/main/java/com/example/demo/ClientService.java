@@ -26,6 +26,14 @@ public class ClientService {
         return clientRepository.save(client);
     }
 
+    public Iterable<Client> findClientByEmailContains(String email) {
+        return clientRepository.findClientByEmailContains(email);
+    }
+
+    public Iterable<Client> findByUserId(String userId) {
+        return clientRepository.findClientsByUserId("%" + userId + "%");
+    }
+
     private Client createClient() {
         var client = new Client();
         Integer randomNumber = new Random(System.currentTimeMillis()).nextInt();
@@ -33,14 +41,6 @@ public class ClientService {
         client.setEmail(String.format("%d@%d.com", randomNumber, randomNumber));
         client.setPassword(randomNumber.toString());
         return client;
-    }
-
-    public Iterable<Client> findClientByEmailContains(String email) {
-        return clientRepository.findClientByEmailContains(email);
-    }
-
-    public Iterable<Client> findByUserId(String userId) {
-        return clientRepository.findClientsByUserId("%" + userId + "%");
     }
 
 }

@@ -1,7 +1,5 @@
 package com.example.demo;
 
-import java.time.LocalDateTime;
-
 import org.springframework.data.annotation.Id;
 
 import lombok.EqualsAndHashCode;
