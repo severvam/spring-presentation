@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MyTransactionAnnotationBeanPostProcessor implements BeanPostProcessor {
 
-	Map<String, Class> beanOriginalClassMap = new HashMap<>();
+	Map<String, Class<?>> beanOriginalClassMap = new HashMap<>();
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

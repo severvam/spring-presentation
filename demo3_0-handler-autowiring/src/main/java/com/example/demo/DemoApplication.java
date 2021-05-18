@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import java.util.Random;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,9 +19,10 @@ public class DemoApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) {
-		var bean = applicationContext.getBean(MyInterface.class);
-		bean.doSomething();
+	public void run(String... args) throws Exception {
+		var bean = applicationContext.getBean(HandlerService.class);
+		Integer randomCode = new Random(System.currentTimeMillis()).nextInt(3);
+		bean.execute(randomCode.toString());
 	}
 
 }
